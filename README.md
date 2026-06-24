@@ -1,29 +1,39 @@
-# Mario More Comfortable
+#include <cs50.h>
+#include <stdio.h>
 
-A C program written as part of Harvard CS50 Week 1.
+int main(void)
+{
+    int height;
 
-## Description
+    do
+    {
+        height = get_int("Height: ");
+    }
+    while (height < 1 || height > 8);
 
-This program prompts the user for a height between 1 and 8 and prints a double half-pyramid using hash (`#`) characters.
+    for (int i = 0; i < height; i++)
+    {
+        // Print spaces
+        for (int j = 0; j < height - i - 1; j++)
+        {
+            printf(" ");
+        }
 
-Example output for height 4:
+        // Print left pyramid
+        for (int j = 0; j <= i; j++)
+        {
+            printf("#");
+        }
 
-   #  #
-  ##  ##
- ###  ###
-####  ####
+        // Print gap
+        printf("  ");
 
-## Language
+        // Print right pyramid
+        for (int j = 0; j <= i; j++)
+        {
+            printf("#");
+        }
 
-- C
-
-## Concepts Used
-
-- Loops
-- Nested Loops
-- User Input
-- Conditionals
-
-## Author
-
-Ggr
+        printf("\n");
+    }
+}
